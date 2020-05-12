@@ -1,6 +1,5 @@
-#$appids = import-csv -Path "C:\Temp\apps.csv"
-
-$appids = "76fefbf3-9ae0-46c9-a6b3-110a19c40226","e25f6207-1931-4268-bc03-262947c21830","061905c8-2100-435d-b7f1-217fd00c12f1"
+$appids= Get-Content -path "c:\SHA\appids.txt"
+#$appids = "76fefbf3-9ae0-46c9-a6b3-110a19c40226","e25f6207-1931-4268-bc03-262947c21830","061905c8-2100-435d-b7f1-217fd00c12f1"
 
 # Get tenant details to test that Connect-AzureAD has been called
 try {
