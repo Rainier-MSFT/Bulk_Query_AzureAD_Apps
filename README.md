@@ -1,4 +1,4 @@
-# Get_AzureAD_Apps_txt
+# Get_AzureAD_Apps
 
 Powershell script to bulk query Azure AD applications by AppId
 
