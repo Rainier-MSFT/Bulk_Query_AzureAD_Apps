@@ -1,6 +1,6 @@
-#$Apps = import-csv -Path "C:\Temp\apps.csv"
+#$appids = import-csv -Path "C:\Temp\apps.csv"
 
-$Apps = "76fefbf3-9ae0-46c9-a6b3-110a19c40226","e25f6207-1931-4268-bc03-262947c21830","061905c8-2100-435d-b7f1-217fd00c12f1"
+$appids = "76fefbf3-9ae0-46c9-a6b3-110a19c40226","e25f6207-1931-4268-bc03-262947c21830","061905c8-2100-435d-b7f1-217fd00c12f1"
 
 # Get tenant details to test that Connect-AzureAD has been called
 try {
@@ -14,12 +14,12 @@ Write-Verbose ("TenantId: {0}, InitialDomain: {1}" -f `
 
 $i = 1
 $App_List = @()
-$count = $apps.count
-Foreach ($app in $apps)
+$count = $appids.count
+Foreach ($appid in $appids)
 {
-    Write-Progress -Activity "Getting $($app.DisplayName) App information" -Status "$i of $count" -PercentComplete ($i/$count*100)
+    Write-Progress -Activity "Getting $($appid.DisplayName) App information" -Status "$i of $count" -PercentComplete ($i/$count*100)
       try {
-            $f5apps = Get-AzureADApplication -Filter "AppId eq '$app'" -ErrorAction Stop
+            $f5apps = Get-AzureADApplication -Filter "AppId eq '$appid'" -ErrorAction Stop
             $result = " " | Select-Object DisplayName, ObjectId, AppId, HomePage, ReplyUrls
             $result.DisplayName = $($f5apps.Displayname)
             $result.ObjectId = $($f5apps.ObjectId)
