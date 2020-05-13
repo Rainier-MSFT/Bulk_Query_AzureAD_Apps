@@ -10,7 +10,6 @@ try {
 Write-Verbose ("TenantId: {0}, InitialDomain: {1}" -f `
                 $tenant_details.ObjectId, `
                 ($tenant_details.VerifiedDomains | Where-Object { $_.Initial }).Name)
-
 $i = 1
 $App_List = @()
 $count = $appids.count
