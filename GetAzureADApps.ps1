@@ -36,4 +36,4 @@ Foreach ($appid in $appids)
 }
 
 $App_List | Out-GridView
-$App_List | Out-File "c:\SHA\appinfo.txt"
+$App_List | Out-File "c:\SHA\appinfo.csv"
